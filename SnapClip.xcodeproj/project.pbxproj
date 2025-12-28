@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5364DB042F01CB4E006DB07D /* SnapClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB032F01CB4E006DB07D /* SnapClipApp.swift */; };
+		5364DB062F01CB4E006DB07D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB052F01CB4E006DB07D /* ContentView.swift */; };
+		5364DB082F01CB51006DB07D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5364DB072F01CB51006DB07D /* Assets.xcassets */; };
+		5364DB0B2F01CB51006DB07D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5364DB0A2F01CB51006DB07D /* Preview Assets.xcassets */; };
+		5364DB162F01CB51006DB07D /* SnapClipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB152F01CB51006DB07D /* SnapClipTests.swift */; };
+		5364DB202F01CB51006DB07D /* SnapClipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB1F2F01CB51006DB07D /* SnapClipUITests.swift */; };
+		5364DB222F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB212F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5364DB122F01CB51006DB07D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5364DAF82F01CB4E006DB07D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5364DAFF2F01CB4E006DB07D;
+			remoteInfo = SnapClip;
+		};
+		5364DB1C2F01CB51006DB07D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5364DAF82F01CB4E006DB07D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5364DAFF2F01CB4E006DB07D;
+			remoteInfo = SnapClip;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5364DB002F01CB4E006DB07D /* SnapClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5364DB032F01CB4E006DB07D /* SnapClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapClipApp.swift; sourceTree = "<group>"; };
+		5364DB052F01CB4E006DB07D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5364DB072F01CB51006DB07D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5364DB0A2F01CB51006DB07D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5364DB0C2F01CB51006DB07D /* SnapClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SnapClip.entitlements; sourceTree = "<group>"; };
+		5364DB112F01CB51006DB07D /* SnapClipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapClipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5364DB152F01CB51006DB07D /* SnapClipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapClipTests.swift; sourceTree = "<group>"; };
+		5364DB1B2F01CB51006DB07D /* SnapClipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapClipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5364DB1F2F01CB51006DB07D /* SnapClipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapClipUITests.swift; sourceTree = "<group>"; };
+		5364DB212F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapClipUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5364DAFD2F01CB4E006DB07D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5364DB0E2F01CB51006DB07D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5364DB182F01CB51006DB07D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5364DAF72F01CB4E006DB07D = {
+			isa = PBXGroup;
+			children = (
+				5364DB022F01CB4E006DB07D /* SnapClip */,
+				5364DB142F01CB51006DB07D /* SnapClipTests */,
+				5364DB1E2F01CB51006DB07D /* SnapClipUITests */,
+				5364DB012F01CB4E006DB07D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5364DB012F01CB4E006DB07D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5364DB002F01CB4E006DB07D /* SnapClip.app */,
+				5364DB112F01CB51006DB07D /* SnapClipTests.xctest */,
+				5364DB1B2F01CB51006DB07D /* SnapClipUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5364DB022F01CB4E006DB07D /* SnapClip */ = {
+			isa = PBXGroup;
+			children = (
+				5364DB032F01CB4E006DB07D /* SnapClipApp.swift */,
+				5364DB052F01CB4E006DB07D /* ContentView.swift */,
+				5364DB072F01CB51006DB07D /* Assets.xcassets */,
+				5364DB0C2F01CB51006DB07D /* SnapClip.entitlements */,
+				5364DB092F01CB51006DB07D /* Preview Content */,
+			);
+			path = SnapClip;
+			sourceTree = "<group>";
+		};
+		5364DB092F01CB51006DB07D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5364DB0A2F01CB51006DB07D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5364DB142F01CB51006DB07D /* SnapClipTests */ = {
+			isa = PBXGroup;
+			children = (
+				5364DB152F01CB51006DB07D /* SnapClipTests.swift */,
+			);
+			path = SnapClipTests;
+			sourceTree = "<group>";
+		};
+		5364DB1E2F01CB51006DB07D /* SnapClipUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5364DB1F2F01CB51006DB07D /* SnapClipUITests.swift */,
+				5364DB212F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift */,
+			);
+			path = SnapClipUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5364DAFF2F01CB4E006DB07D /* SnapClip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5364DB252F01CB51006DB07D /* Build configuration list for PBXNativeTarget "SnapClip" */;
+			buildPhases = (
+				5364DAFC2F01CB4E006DB07D /* Sources */,
+				5364DAFD2F01CB4E006DB07D /* Frameworks */,
+				5364DAFE2F01CB4E006DB07D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SnapClip;
+			productName = SnapClip;
+			productReference = 5364DB002F01CB4E006DB07D /* SnapClip.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5364DB102F01CB51006DB07D /* SnapClipTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5364DB282F01CB51006DB07D /* Build configuration list for PBXNativeTarget "SnapClipTests" */;
+			buildPhases = (
+				5364DB0D2F01CB51006DB07D /* Sources */,
+				5364DB0E2F01CB51006DB07D /* Frameworks */,
+				5364DB0F2F01CB51006DB07D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5364DB132F01CB51006DB07D /* PBXTargetDependency */,
+			);
+			name = SnapClipTests;
+			productName = SnapClipTests;
+			productReference = 5364DB112F01CB51006DB07D /* SnapClipTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5364DB1A2F01CB51006DB07D /* SnapClipUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5364DB2B2F01CB51006DB07D /* Build configuration list for PBXNativeTarget "SnapClipUITests" */;
+			buildPhases = (
+				5364DB172F01CB51006DB07D /* Sources */,
+				5364DB182F01CB51006DB07D /* Frameworks */,
+				5364DB192F01CB51006DB07D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5364DB1D2F01CB51006DB07D /* PBXTargetDependency */,
+			);
+			name = SnapClipUITests;
+			productName = SnapClipUITests;
+			productReference = 5364DB1B2F01CB51006DB07D /* SnapClipUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5364DAF82F01CB4E006DB07D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					5364DAFF2F01CB4E006DB07D = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					5364DB102F01CB51006DB07D = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 5364DAFF2F01CB4E006DB07D;
+					};
+					5364DB1A2F01CB51006DB07D = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 5364DAFF2F01CB4E006DB07D;
+					};
+				};
+			};
+			buildConfigurationList = 5364DAFB2F01CB4E006DB07D /* Build configuration list for PBXProject "SnapClip" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5364DAF72F01CB4E006DB07D;
+			productRefGroup = 5364DB012F01CB4E006DB07D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5364DAFF2F01CB4E006DB07D /* SnapClip */,
+				5364DB102F01CB51006DB07D /* SnapClipTests */,
+				5364DB1A2F01CB51006DB07D /* SnapClipUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5364DAFE2F01CB4E006DB07D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5364DB0B2F01CB51006DB07D /* Preview Assets.xcassets in Resources */,
+				5364DB082F01CB51006DB07D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5364DB0F2F01CB51006DB07D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5364DB192F01CB51006DB07D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5364DAFC2F01CB4E006DB07D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5364DB062F01CB4E006DB07D /* ContentView.swift in Sources */,
+				5364DB042F01CB4E006DB07D /* SnapClipApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5364DB0D2F01CB51006DB07D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5364DB162F01CB51006DB07D /* SnapClipTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5364DB172F01CB51006DB07D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5364DB222F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift in Sources */,
+				5364DB202F01CB51006DB07D /* SnapClipUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5364DB132F01CB51006DB07D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5364DAFF2F01CB4E006DB07D /* SnapClip */;
+			targetProxy = 5364DB122F01CB51006DB07D /* PBXContainerItemProxy */;
+		};
+		5364DB1D2F01CB51006DB07D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5364DAFF2F01CB4E006DB07D /* SnapClip */;
+			targetProxy = 5364DB1C2F01CB51006DB07D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5364DB232F01CB51006DB07D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5364DB242F01CB51006DB07D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		5364DB262F01CB51006DB07D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SnapClip/SnapClip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SnapClip/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SnapClip.SnapClip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5364DB272F01CB51006DB07D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SnapClip/SnapClip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SnapClip/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SnapClip.SnapClip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5364DB292F01CB51006DB07D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SnapClip.SnapClipTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnapClip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SnapClip";
+			};
+			name = Debug;
+		};
+		5364DB2A2F01CB51006DB07D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SnapClip.SnapClipTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SnapClip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SnapClip";
+			};
+			name = Release;
+		};
+		5364DB2C2F01CB51006DB07D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SnapClip.SnapClipUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SnapClip;
+			};
+			name = Debug;
+		};
+		5364DB2D2F01CB51006DB07D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SnapClip.SnapClipUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SnapClip;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5364DAFB2F01CB4E006DB07D /* Build configuration list for PBXProject "SnapClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5364DB232F01CB51006DB07D /* Debug */,
+				5364DB242F01CB51006DB07D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5364DB252F01CB51006DB07D /* Build configuration list for PBXNativeTarget "SnapClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5364DB262F01CB51006DB07D /* Debug */,
+				5364DB272F01CB51006DB07D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5364DB282F01CB51006DB07D /* Build configuration list for PBXNativeTarget "SnapClipTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5364DB292F01CB51006DB07D /* Debug */,
+				5364DB2A2F01CB51006DB07D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5364DB2B2F01CB51006DB07D /* Build configuration list for PBXNativeTarget "SnapClipUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5364DB2C2F01CB51006DB07D /* Debug */,
+				5364DB2D2F01CB51006DB07D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5364DAF82F01CB4E006DB07D /* Project object */;
+}
