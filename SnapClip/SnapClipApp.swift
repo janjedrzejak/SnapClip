@@ -14,7 +14,7 @@ struct SnapClipApp: App {
 final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         print("🚀 SnapClip uruchomiony")
-        NSApplication.shared.setActivationPolicy(.regular)
+        NSApplication.shared.setActivationPolicy(.accessory)
 
         ClipboardManager.shared.setup()
 
@@ -263,19 +263,34 @@ final class TextDrawingView: NSView {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
-        // Tekst
         let textFont = NSFont.systemFont(ofSize: 13)
         let textColor = NSColor.white
         let textAttr: [NSAttributedString.Key: Any] = [.font: textFont, .foregroundColor: textColor]
-        let textString = NSAttributedString(string: text, attributes: textAttr)
-        textString.draw(at: NSPoint(x: 8, y: 20))
         
-        // Czas
+        let maxWidth: CGFloat = 448
+        let maxHeight: CGFloat = 48
+        
+        var displayText = text
+        
+        if let newlineIndex = text.firstIndex(of: "\n") {
+            displayText = String(text[..<newlineIndex])
+            if displayText.count > 40 {
+                displayText = String(displayText.prefix(40)) + "..."
+            }
+        } else if text.count > 50 {
+            displayText = String(text.prefix(50)) + "..."
+        }
+        
+        let displayString = NSAttributedString(string: displayText, attributes: textAttr)
+        let textRect = NSRect(x: 12, y: 10, width: maxWidth, height: maxHeight)
+        
+        displayString.draw(in: textRect)
+        
         let timeFont = NSFont.systemFont(ofSize: 11)
         let timeColor = NSColor(calibratedWhite: 1.0, alpha: 0.7)
         let timeAttr: [NSAttributedString.Key: Any] = [.font: timeFont, .foregroundColor: timeColor]
         let timeString = NSAttributedString(string: timestamp, attributes: timeAttr)
-        timeString.draw(at: NSPoint(x: 8, y: 4))
+        timeString.draw(at: NSPoint(x: 12, y: 2))
     }
 }
 
@@ -358,18 +373,18 @@ final class ClipboardViewController: NSViewController {
 
         emptyLabel.isHidden = true
 
-        let contentHeight = history.count * 112 + 40
+        let contentHeight = history.count * 80 + 20
         containerView.frame = NSRect(x: 0, y: 0, width: 600, height: CGFloat(contentHeight))
 
-        var yPosition: CGFloat = 20
+        var yPosition: CGFloat = 10
 
         for item in history {
             let itemView = createHistoryItemView(item)
-            itemView.frame = NSRect(x: 16, y: yPosition, width: 568, height: 100)
+            itemView.frame = NSRect(x: 16, y: yPosition, width: 568, height: 80)
             
             historyViews.append(itemView)
             containerView.addSubview(itemView)
-            yPosition += 112
+            yPosition += 80
         }
     }
 
@@ -378,7 +393,7 @@ final class ClipboardViewController: NSViewController {
         container.wantsLayer = true
         container.identifier = NSUserInterfaceItemIdentifier(item.id.uuidString)
 
-        let textContainer = ClickableView(frame: NSRect(x: 12, y: 12, width: 480, height: 76))
+        let textContainer = ClickableView(frame: NSRect(x: 12, y: 8, width: 480, height: 64))
         textContainer.wantsLayer = true
         textContainer.identifier = NSUserInterfaceItemIdentifier(item.id.uuidString)
         textContainer.layer?.backgroundColor = NSColor(calibratedWhite: 0.12, alpha: 0.75).cgColor
@@ -388,7 +403,6 @@ final class ClipboardViewController: NSViewController {
         textContainer.target = self
         textContainer.itemId = item.id
 
-        // Renderuj tekst bezpośrednio bez subviews
         let textDrawView = TextDrawingView(text: item.text, timestamp: formatTime(item.timestamp))
         textDrawView.frame = textContainer.bounds
         textDrawView.wantsLayer = true
@@ -397,7 +411,14 @@ final class ClipboardViewController: NSViewController {
 
         container.addSubview(textContainer)
 
-        let deleteButton = NSButton(frame: NSRect(x: 504, y: 12, width: 52, height: 76))
+        let deleteContainer = NSView(frame: NSRect(x: 504, y: 8, width: 52, height: 64))
+        deleteContainer.wantsLayer = true
+        deleteContainer.layer?.backgroundColor = NSColor(calibratedWhite: 0.12, alpha: 0.75).cgColor
+        deleteContainer.layer?.borderColor = NSColor(calibratedWhite: 1.0, alpha: 0.12).cgColor
+        deleteContainer.layer?.borderWidth = 1
+        deleteContainer.layer?.cornerRadius = 10
+        
+        let deleteButton = NSButton(frame: NSRect(x: 0, y: 0, width: 52, height: 64))
         deleteButton.title = "🗑"
         deleteButton.font = NSFont.systemFont(ofSize: 24)
         deleteButton.bezelStyle = .rounded
@@ -408,7 +429,9 @@ final class ClipboardViewController: NSViewController {
         deleteButton.target = self
         deleteButton.action = #selector(deleteItem(_:))
         deleteButton.tag = item.id.hashValue
-        container.addSubview(deleteButton)
+        deleteContainer.addSubview(deleteButton)
+        
+        container.addSubview(deleteContainer)
 
         container.layer?.backgroundColor = NSColor.clear.cgColor
 
