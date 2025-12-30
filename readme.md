@@ -1,3 +1,34 @@
+# SnapClip 📋
+
+A simple and efficient clipboard history manager for macOS. Store and quickly access your last 10 copied texts with one click.
+
+## Features ✨
+
+- **Clipboard History** - Keep track of your last 10 copied texts
+- **Quick Access** - Click any item to paste it to the last active application
+- **Persistent Storage** - History saved in `~/Library/Application Support/SnapClip/history.json`
+- **Always on Top** - Toggle window to stay above other applications
+- **Auto-Launch** - Option to start SnapClip with system boot
+- **Status Bar** - Quick access icon in menu bar
+- **Clean Shutdown** - Automatically clear history and clipboard on app close
+- **Hotkey Support** - CMD+SHIFT+V to toggle window (requires Accessibility permissions)
+
+## Screenshots
+
+![SnapClip Demo](screenshots/demo.gif)
+
+## Requirements
+
+- macOS 12.0+
+- Xcode 14.0+
+- Swift 5.7+
+
+## Installation
+
+### Build from Source
+git clone https://github.com/janjedrzejak/SnapClip.git
+cd SnapClip
+open SnapClip.xcodeproj
 
 Press `Cmd+B` to build, `Cmd+R` to run.
 
