@@ -67,17 +67,7 @@ To enable global hotkey support:
 | **Quit** | Close app |
 
 ## Project Structure
-SnapClip/
-├── App/
-│ ├── SnapClipApp.swift # Entry point
-│ └── AppDelegate.swift # Lifecycle
-├── Core/
-│ ├── ClipboardManager.swift # Core logic
-│ └── Models/
-│ └── ClipboardItem.swift
-├── UI/
-│ ├── ClipboardViewController.swift
-│ └── UIComponents.swift # All custom views
+tree SnapClip/ -a -I '.git' --charset ascii | sed 's/| / /g' | sed 's/[|`]-/├ /g'
 ## Storage Location
 ~/Library/Application Support/SnapClip/history.json
 ## Troubleshooting
