@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5364DB042F01CB4E006DB07D /* SnapClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB032F01CB4E006DB07D /* SnapClipApp.swift */; };
-		5364DB062F01CB4E006DB07D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB052F01CB4E006DB07D /* ContentView.swift */; };
 		5364DB082F01CB51006DB07D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5364DB072F01CB51006DB07D /* Assets.xcassets */; };
 		5364DB0B2F01CB51006DB07D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5364DB0A2F01CB51006DB07D /* Preview Assets.xcassets */; };
 		5364DB162F01CB51006DB07D /* SnapClipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB152F01CB51006DB07D /* SnapClipTests.swift */; };
@@ -36,7 +35,6 @@
 /* Begin PBXFileReference section */
 		5364DB002F01CB4E006DB07D /* SnapClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnapClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5364DB032F01CB4E006DB07D /* SnapClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapClipApp.swift; sourceTree = "<group>"; };
-		5364DB052F01CB4E006DB07D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5364DB072F01CB51006DB07D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5364DB0A2F01CB51006DB07D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5364DB0C2F01CB51006DB07D /* SnapClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SnapClip.entitlements; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				5364DB032F01CB4E006DB07D /* SnapClipApp.swift */,
-				5364DB052F01CB4E006DB07D /* ContentView.swift */,
 				5364DB072F01CB51006DB07D /* Assets.xcassets */,
 				5364DB0C2F01CB51006DB07D /* SnapClip.entitlements */,
 				5364DB092F01CB51006DB07D /* Preview Content */,
@@ -259,7 +256,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5364DB062F01CB4E006DB07D /* ContentView.swift in Sources */,
 				5364DB042F01CB4E006DB07D /* SnapClipApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
