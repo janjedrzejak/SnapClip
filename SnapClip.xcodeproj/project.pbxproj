@@ -13,6 +13,12 @@
 		5364DB162F01CB51006DB07D /* SnapClipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB152F01CB51006DB07D /* SnapClipTests.swift */; };
 		5364DB202F01CB51006DB07D /* SnapClipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB1F2F01CB51006DB07D /* SnapClipUITests.swift */; };
 		5364DB222F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB212F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift */; };
+		53D86B642F047D1C0048E9FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D86B632F047D1C0048E9FD /* AppDelegate.swift */; };
+		53D86B662F047D3D0048E9FD /* ClipboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D86B652F047D3D0048E9FD /* ClipboardItem.swift */; };
+		53D86B682F047D5C0048E9FD /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D86B672F047D5C0048E9FD /* ClipboardManager.swift */; };
+		53D86B6A2F047D7B0048E9FD /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D86B692F047D7B0048E9FD /* UIComponents.swift */; };
+		53D86B6C2F047D970048E9FD /* ClipboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D86B6B2F047D970048E9FD /* ClipboardViewController.swift */; };
+		53D86B6E2F0481C70048E9FD /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 53D86B6D2F0481C70048E9FD /* readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +49,12 @@
 		5364DB1B2F01CB51006DB07D /* SnapClipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapClipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5364DB1F2F01CB51006DB07D /* SnapClipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapClipUITests.swift; sourceTree = "<group>"; };
 		5364DB212F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapClipUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		53D86B632F047D1C0048E9FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		53D86B652F047D3D0048E9FD /* ClipboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardItem.swift; sourceTree = "<group>"; };
+		53D86B672F047D5C0048E9FD /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
+		53D86B692F047D7B0048E9FD /* UIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponents.swift; sourceTree = "<group>"; };
+		53D86B6B2F047D970048E9FD /* ClipboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardViewController.swift; sourceTree = "<group>"; };
+		53D86B6D2F0481C70048E9FD /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +85,7 @@
 		5364DAF72F01CB4E006DB07D = {
 			isa = PBXGroup;
 			children = (
+				53D86B6D2F0481C70048E9FD /* readme.md */,
 				5364DB022F01CB4E006DB07D /* SnapClip */,
 				5364DB142F01CB51006DB07D /* SnapClipTests */,
 				5364DB1E2F01CB51006DB07D /* SnapClipUITests */,
@@ -94,6 +107,11 @@
 			isa = PBXGroup;
 			children = (
 				5364DB032F01CB4E006DB07D /* SnapClipApp.swift */,
+				53D86B632F047D1C0048E9FD /* AppDelegate.swift */,
+				53D86B652F047D3D0048E9FD /* ClipboardItem.swift */,
+				53D86B672F047D5C0048E9FD /* ClipboardManager.swift */,
+				53D86B6B2F047D970048E9FD /* ClipboardViewController.swift */,
+				53D86B692F047D7B0048E9FD /* UIComponents.swift */,
 				5364DB072F01CB51006DB07D /* Assets.xcassets */,
 				5364DB0C2F01CB51006DB07D /* SnapClip.entitlements */,
 				5364DB092F01CB51006DB07D /* Preview Content */,
@@ -231,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5364DB0B2F01CB51006DB07D /* Preview Assets.xcassets in Resources */,
+				53D86B6E2F0481C70048E9FD /* readme.md in Resources */,
 				5364DB082F01CB51006DB07D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,7 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53D86B682F047D5C0048E9FD /* ClipboardManager.swift in Sources */,
+				53D86B642F047D1C0048E9FD /* AppDelegate.swift in Sources */,
 				5364DB042F01CB4E006DB07D /* SnapClipApp.swift in Sources */,
+				53D86B6C2F047D970048E9FD /* ClipboardViewController.swift in Sources */,
+				53D86B6A2F047D7B0048E9FD /* UIComponents.swift in Sources */,
+				53D86B662F047D3D0048E9FD /* ClipboardItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = SnapClip/SnapClip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -418,6 +443,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SnapClip/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SnapClip;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -436,6 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = SnapClip/SnapClip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -443,6 +471,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SnapClip/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SnapClip;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
