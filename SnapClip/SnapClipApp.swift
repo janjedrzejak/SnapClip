@@ -18,7 +18,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         ClipboardManager.shared.setup()
 
-        // Okno historii jako startowe
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             ClipboardManager.shared.showWindow()
         }
@@ -38,7 +37,6 @@ final class ClipboardManager: NSObject {
     private let maxHistorySize = 10
     private let userDefaults = UserDefaults.standard
 
-    // Ostatnia aktywna aplikacja (inna niż SnapClip)
     private var lastUserApp: NSRunningApplication?
     private var observers: [NSObjectProtocol] = []
 
@@ -82,9 +80,7 @@ final class ClipboardManager: NSObject {
         ) { [weak self] note in
             guard let app = note.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication else { return }
 
-            // ignoruj SnapClip
             if app.bundleIdentifier == Bundle.main.bundleIdentifier { return }
-
             self?.lastUserApp = app
         }
 
@@ -107,8 +103,6 @@ final class ClipboardManager: NSObject {
 
     func showWindow() {
         if window == nil { createWindow() }
-
-        // Nie aktywujemy aplikacji (żeby nie kraść focusu docelowej aplikacji)
         window?.orderFront(nil)
         refreshUI()
     }
@@ -116,7 +110,6 @@ final class ClipboardManager: NSObject {
     private func createWindow() {
         let rect = NSRect(x: 0, y: 0, width: 600, height: 700)
 
-        // Non-activating panel: panel nie aktywuje SnapClipa
         let panel = NSPanel(
             contentRect: rect,
             styleMask: [.titled, .closable, .miniaturizable, .nonactivatingPanel],
@@ -126,21 +119,14 @@ final class ClipboardManager: NSObject {
 
         panel.title = "SnapClip"
         panel.isReleasedWhenClosed = false
-
-        // Blokada zmiany rozmiaru
         panel.minSize = NSSize(width: 600, height: 700)
         panel.maxSize = NSSize(width: 600, height: 700)
-
-        // Nie chowaj po utracie aktywacji
         panel.hidesOnDeactivate = false
-
-        // Półprzezroczystość okna
         panel.isOpaque = false
         panel.backgroundColor = .clear
         panel.alphaValue = 0.92
 
         panel.contentViewController = ClipboardViewController(manager: self)
-
         self.window = panel
 
         positionWindowRight(panel)
@@ -194,18 +180,13 @@ final class ClipboardManager: NSObject {
         lastClipboardContent = text
     }
 
-    /// Wkleja do aplikacji, w której użytkownik miał kursor, bez chowania okna SnapClipa.
-    /// Uwaga: wysyłanie ⌘V wymaga uprawnień Accessibility.
     func pasteToLastUserApp(_ text: String) {
         copyToClipboard(text)
-
-        // Spróbuj przywrócić focus docelowej appce (SnapClip nie jest aktywowany jako panel)
         lastUserApp?.activate(options: .activateAllWindows)
 
-        // ⌘V po krótkim delayu
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
             let source = CGEventSource(stateID: .privateState)
-            let keyDown = CGEvent(keyboardEventSource: source, virtualKey: 9, keyDown: true) // V
+            let keyDown = CGEvent(keyboardEventSource: source, virtualKey: 9, keyDown: true)
             let keyUp = CGEvent(keyboardEventSource: source, virtualKey: 9, keyDown: false)
 
             keyDown?.flags = .maskCommand
@@ -246,9 +227,56 @@ final class ClipboardManager: NSObject {
     func getHistory() -> [ClipboardItem] { history }
 }
 
-// Flipped view dla prawidłowego scrollowania
 final class FlippedView: NSView {
     override var isFlipped: Bool { true }
+}
+
+final class ClickableView: NSView {
+    weak var target: ClipboardViewController?
+    var itemId: UUID?
+    
+    override func mouseDown(with event: NSEvent) {
+        super.mouseDown(with: event)
+        
+        guard let target = target, let itemId = itemId else { return }
+        
+        target.resetPreviousHighlight()
+        self.layer?.borderColor = NSColor(calibratedWhite: 0.7, alpha: 0.8).cgColor
+        self.layer?.borderWidth = 2
+        target.setCurrentHighlight(self)
+        target.pasteFromHistoryItem(itemId)
+    }
+}
+
+final class TextDrawingView: NSView {
+    let text: String
+    let timestamp: String
+    
+    init(text: String, timestamp: String) {
+        self.text = text
+        self.timestamp = timestamp
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        
+        // Tekst
+        let textFont = NSFont.systemFont(ofSize: 13)
+        let textColor = NSColor.white
+        let textAttr: [NSAttributedString.Key: Any] = [.font: textFont, .foregroundColor: textColor]
+        let textString = NSAttributedString(string: text, attributes: textAttr)
+        textString.draw(at: NSPoint(x: 8, y: 20))
+        
+        // Czas
+        let timeFont = NSFont.systemFont(ofSize: 11)
+        let timeColor = NSColor(calibratedWhite: 1.0, alpha: 0.7)
+        let timeAttr: [NSAttributedString.Key: Any] = [.font: timeFont, .foregroundColor: timeColor]
+        let timeString = NSAttributedString(string: timestamp, attributes: timeAttr)
+        timeString.draw(at: NSPoint(x: 8, y: 4))
+    }
 }
 
 final class ClipboardViewController: NSViewController {
@@ -260,6 +288,7 @@ final class ClipboardViewController: NSViewController {
     var historyViews: [NSView] = []
 
     private var blurView: NSVisualEffectView!
+    private var currentHighlightedView: ClickableView?
 
     init(manager: ClipboardManager) {
         self.manager = manager
@@ -284,7 +313,6 @@ final class ClipboardViewController: NSViewController {
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.clear.cgColor
 
-        // Blur w tle
         blurView = NSVisualEffectView(frame: view.bounds)
         blurView.autoresizingMask = [.width, .height]
         blurView.blendingMode = .behindWindow
@@ -338,6 +366,7 @@ final class ClipboardViewController: NSViewController {
         for item in history {
             let itemView = createHistoryItemView(item)
             itemView.frame = NSRect(x: 16, y: yPosition, width: 568, height: 100)
+            
             historyViews.append(itemView)
             containerView.addSubview(itemView)
             yPosition += 112
@@ -347,57 +376,67 @@ final class ClipboardViewController: NSViewController {
     private func createHistoryItemView(_ item: ClipboardManager.ClipboardItem) -> NSView {
         let container = NSView()
         container.wantsLayer = true
+        container.identifier = NSUserInterfaceItemIdentifier(item.id.uuidString)
 
-        container.layer?.backgroundColor = NSColor(calibratedWhite: 0.12, alpha: 0.75).cgColor
-        container.layer?.borderColor = NSColor(calibratedWhite: 1.0, alpha: 0.12).cgColor
-        container.layer?.borderWidth = 1
-        container.layer?.cornerRadius = 10
+        let textContainer = ClickableView(frame: NSRect(x: 12, y: 12, width: 480, height: 76))
+        textContainer.wantsLayer = true
+        textContainer.identifier = NSUserInterfaceItemIdentifier(item.id.uuidString)
+        textContainer.layer?.backgroundColor = NSColor(calibratedWhite: 0.12, alpha: 0.75).cgColor
+        textContainer.layer?.borderColor = NSColor(calibratedWhite: 1.0, alpha: 0.12).cgColor
+        textContainer.layer?.borderWidth = 1
+        textContainer.layer?.cornerRadius = 10
+        textContainer.target = self
+        textContainer.itemId = item.id
 
-        let textView = NSTextView(frame: NSRect(x: 12, y: 32, width: 460, height: 60))
-        textView.string = item.text
-        textView.isEditable = false
-        textView.isSelectable = true
-        textView.font = NSFont.systemFont(ofSize: 13)
-        textView.drawsBackground = false
-        textView.textColor = NSColor.white
-        container.addSubview(textView)
+        // Renderuj tekst bezpośrednio bez subviews
+        let textDrawView = TextDrawingView(text: item.text, timestamp: formatTime(item.timestamp))
+        textDrawView.frame = textContainer.bounds
+        textDrawView.wantsLayer = true
+        textDrawView.layer?.backgroundColor = NSColor.clear.cgColor
+        textContainer.addSubview(textDrawView)
 
-        let timeLabel = NSTextField(labelWithString: formatTime(item.timestamp))
-        timeLabel.font = NSFont.systemFont(ofSize: 11)
-        timeLabel.textColor = NSColor(calibratedWhite: 1.0, alpha: 0.7)
-        timeLabel.frame = NSRect(x: 12, y: 12, width: 460, height: 16)
-        container.addSubview(timeLabel)
+        container.addSubview(textContainer)
 
-        let copyButton = NSButton(frame: NSRect(x: 484, y: 54, width: 80, height: 32))
-        copyButton.title = "Kopiuj"
-        copyButton.bezelStyle = .rounded
-        copyButton.target = self
-        copyButton.action = #selector(copyItem(_:))
-        copyButton.tag = item.id.hashValue
-        container.addSubview(copyButton)
+        let deleteButton = NSButton(frame: NSRect(x: 504, y: 12, width: 52, height: 76))
+        deleteButton.title = "🗑"
+        deleteButton.font = NSFont.systemFont(ofSize: 24)
+        deleteButton.bezelStyle = .rounded
+        deleteButton.isBordered = false
+        deleteButton.wantsLayer = true
+        deleteButton.layer?.backgroundColor = NSColor.clear.cgColor
+        deleteButton.layer?.borderWidth = 0
+        deleteButton.target = self
+        deleteButton.action = #selector(deleteItem(_:))
+        deleteButton.tag = item.id.hashValue
+        container.addSubview(deleteButton)
 
-        let pasteButton = NSButton(frame: NSRect(x: 484, y: 12, width: 80, height: 32))
-        pasteButton.title = "Wklej"
-        pasteButton.bezelStyle = .rounded
-        pasteButton.target = self
-        pasteButton.action = #selector(pasteItem(_:))
-        pasteButton.tag = item.id.hashValue
-        container.addSubview(pasteButton)
+        container.layer?.backgroundColor = NSColor.clear.cgColor
 
         return container
     }
 
-    @objc private func copyItem(_ sender: NSButton) {
+    func pasteFromHistoryItem(_ itemId: UUID) {
         let history = manager.getHistory()
-        if let item = history.first(where: { $0.id.hashValue == sender.tag }) {
-            manager.copyToClipboard(item.text)
+        if let item = history.first(where: { $0.id == itemId }) {
+            manager.pasteToLastUserApp(item.text)
         }
     }
 
-    @objc private func pasteItem(_ sender: NSButton) {
+    func resetPreviousHighlight() {
+        guard let previousView = currentHighlightedView else { return }
+        previousView.layer?.borderColor = NSColor(calibratedWhite: 1.0, alpha: 0.12).cgColor
+        previousView.layer?.borderWidth = 1
+        currentHighlightedView = nil
+    }
+
+    func setCurrentHighlight(_ view: ClickableView) {
+        currentHighlightedView = view
+    }
+
+    @objc private func deleteItem(_ sender: NSButton) {
         let history = manager.getHistory()
         if let item = history.first(where: { $0.id.hashValue == sender.tag }) {
-            manager.pasteToLastUserApp(item.text)
+            manager.deleteItem(item.id)
         }
     }
 
@@ -408,4 +447,3 @@ final class ClipboardViewController: NSViewController {
         return formatter.string(from: date)
     }
 }
-
