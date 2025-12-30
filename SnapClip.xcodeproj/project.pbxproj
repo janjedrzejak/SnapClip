@@ -106,12 +106,8 @@
 		5364DB022F01CB4E006DB07D /* SnapClip */ = {
 			isa = PBXGroup;
 			children = (
-				5364DB032F01CB4E006DB07D /* SnapClipApp.swift */,
-				53D86B632F047D1C0048E9FD /* AppDelegate.swift */,
-				53D86B652F047D3D0048E9FD /* ClipboardItem.swift */,
-				53D86B672F047D5C0048E9FD /* ClipboardManager.swift */,
-				53D86B6B2F047D970048E9FD /* ClipboardViewController.swift */,
-				53D86B692F047D7B0048E9FD /* UIComponents.swift */,
+				53D86B702F0483DF0048E9FD /* Core */,
+				53D86B722F04841A0048E9FD /* UI */,
 				5364DB072F01CB51006DB07D /* Assets.xcassets */,
 				5364DB0C2F01CB51006DB07D /* SnapClip.entitlements */,
 				5364DB092F01CB51006DB07D /* Preview Content */,
@@ -142,6 +138,42 @@
 				5364DB212F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift */,
 			);
 			path = SnapClipUITests;
+			sourceTree = "<group>";
+		};
+		53D86B6F2F0483BD0048E9FD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5364DB032F01CB4E006DB07D /* SnapClipApp.swift */,
+				53D86B632F047D1C0048E9FD /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		53D86B702F0483DF0048E9FD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				53D86B6F2F0483BD0048E9FD /* App */,
+				53D86B712F04840E0048E9FD /* Models */,
+				53D86B672F047D5C0048E9FD /* ClipboardManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		53D86B712F04840E0048E9FD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53D86B652F047D3D0048E9FD /* ClipboardItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		53D86B722F04841A0048E9FD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				53D86B6B2F047D970048E9FD /* ClipboardViewController.swift */,
+				53D86B692F047D7B0048E9FD /* UIComponents.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
