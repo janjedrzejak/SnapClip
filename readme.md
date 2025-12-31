@@ -67,17 +67,64 @@ To enable global hotkey support:
 | **Quit** | Close app |
 
 ## Project Structure
-SnapClip/
-├── App/
-│ ├── SnapClipApp.swift
-│ └── AppDelegate.swift
-├── Core/
-│ ├── ClipboardManager.swift
-│ └── Models/
-│ └── ClipboardItem.swift
-└── UI/
-├── ClipboardViewController.swift
-└── UIComponents.swift
+```bash
+└── SnapClip
+    ├── SnapClip
+    │   ├── Assets.xcassets
+    │   │   ├── AccentColor.colorset
+    │   │   │   └── Contents.json
+    │   │   ├── AppIcon.appiconset
+    │   │   │   ├── 1024.png
+    │   │   │   ├── 128.png
+    │   │   │   ├── 16.png
+    │   │   │   ├── 256 1.png
+    │   │   │   ├── 256.png
+    │   │   │   ├── 32 1.png
+    │   │   │   ├── 32.png
+    │   │   │   ├── 512 1.png
+    │   │   │   ├── 512.png
+    │   │   │   ├── 64.png
+    │   │   │   └── Contents.json
+    │   │   └── Contents.json
+    │   ├── Core
+    │   │   ├── App
+    │   │   │   ├── AppDelegate.swift
+    │   │   │   └── SnapClipApp.swift
+    │   │   ├── ClipboardManager.swift
+    │   │   └── Models
+    │   │       └── ClipboardItem.swift
+    │   ├── Preview Content
+    │   │   └── Preview Assets.xcassets
+    │   │       └── Contents.json
+    │   ├── SnapClip.entitlements
+    │   └── UI
+    │       ├── ClipboardViewController.swift
+    │       └── UIComponents.swift
+    ├── SnapClip.xcodeproj
+    │   ├── project.pbxproj
+    │   ├── project.xcworkspace
+    │   │   ├── contents.xcworkspacedata
+    │   │   ├── xcshareddata
+    │   │   │   ├── IDEWorkspaceChecks.plist
+    │   │   │   └── swiftpm
+    │   │   │       └── configuration
+    │   │   └── xcuserdata
+    │   │       └── janjedrzejak.xcuserdatad
+    │   │           └── UserInterfaceState.xcuserstate
+    │   └── xcuserdata
+    │       └── janjedrzejak.xcuserdatad
+    │           ├── xcdebugger
+    │           │   └── Breakpoints_v2.xcbkptlist
+    │           └── xcschemes
+    │               └── xcschememanagement.plist
+    ├── SnapClipTests
+    │   └── SnapClipTests.swift
+    ├── SnapClipUITests
+    │   ├── SnapClipUITests.swift
+    │   └── SnapClipUITestsLaunchTests.swift
+    └── readme.md
+
+```
 ## Storage Location
 ~/Library/Application Support/SnapClip/history.json
 ## Troubleshooting
