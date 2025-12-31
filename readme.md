@@ -1,157 +1,58 @@
-# SnapClip 📋
+# SnapClip v1.0.0 Release
 
-A simple and efficient clipboard history manager for macOS. Store and quickly access your last 10 copied texts with one click.
+**Production Ready Menu Bar Clipboard Manager**
 
-## Features ✨
+Release is now live: https://github.com/janjedrzejak/SnapClip/releases/tag/SnapClip-v1.0.0-Production-Ready
 
-- **Clipboard History** - Keep track of your last 10 copied texts
-- **Quick Access** - Click any item to paste it to the last active application
-- **Persistent Storage** - History saved in `~/Library/Application Support/SnapClip/history.json`
-- **Always on Top** - Toggle window to stay above other applications
-- **Auto-Launch** - Option to start SnapClip with system boot
-- **Status Bar** - Quick access icon in menu bar
-- **Clean Shutdown** - Automatically clear history and clipboard on app close
-- **Hotkey Support** - CMD+SHIFT+V to toggle window (requires Accessibility permissions)
+## Release Summary
 
-## Screenshots
+| Element | Status |
+|---------|--------|
+| Git tag v1.0.0 | Completed |
+| README.md updated | Completed |
+| Release notes | Completed |
+| SnapClip.app binary | Completed |
+| GitHub Release page | Live |
 
-![SnapClip Demo](screenshots/demo.gif)
+## What's Included
 
-## Requirements
-
-- macOS 12.0+
-- Xcode 14.0+
-- Swift 5.7+
+- Global hotkey Alt+Cmd+/ works everywhere
+- Pin/unpin items with teal styling
+- Startup permissions check
+- Dark/teal professional UI
+- Menu bar accessory (no Dock icon)
 
 ## Installation
 
-### Build from Source
-git clone https://github.com/janjedrzejak/SnapClip.git
-cd SnapClip
-open SnapClip.xcodeproj
+1. Download `SnapClip.app` from GitHub Releases
+2. Double-click to install
+3. Grant Accessibility permissions on first launch
+4. Press Alt+Cmd+/ to open
 
-Press `Cmd+B` to build, `Cmd+R` to run.
+## Features
 
-## Configuration
+- **Global Hotkey** - Alt+Cmd+/ (Safari, Chrome, Notes, VS Code)
+- **Pin/Unpin** - Pin important clips to top of list
+- **Permissions Check** - Auto-prompt on startup
+- **Professional UI** - Clean dark design with SF Symbols
+- **Menu Bar Only** - No Dock icon cluttering
 
-### Global Hotkey (CMD+SHIFT+V)
+## Requirements
 
-To enable global hotkey support:
+- macOS 12+ (Monterey+)
+- Accessibility permissions (auto-prompt)
 
-1. **System Preferences → Security & Privacy → Accessibility**
-2. Click **+** to add SnapClip
-3. Navigate to Applications folder and select **SnapClip.app**
-4. Restart SnapClip
+## Roadmap
 
-## Usage
+- v1.1: Search + Categories
+- v1.2: iCloud Sync
+- v2.0: Spaces/Tabs support
 
-### Toggle Window
-- Click clipboard icon in menu bar 📋
-- Press **CMD+SHIFT+V** (requires Accessibility)
+## Download
 
-### Paste from History
-1. Click any item
-2. Text auto-pastes to last active app
-3. Window hides automatically
-
-### Delete Item
-- Click 🗑️ button next to item
-
-## Menu Bar Options
-
-| Option | Description |
-|--------|-------------|
-| **Show History** | Toggle window |
-| **Always on Top** ☑ | Stay above other apps |
-| **Launch at Login** ☑ | Auto-start with system |
-| **Quit** | Close app |
-
-## Project Structure
-```bash
-└── SnapClip
-    ├── SnapClip
-    │   ├── Assets.xcassets
-    │   │   ├── AccentColor.colorset
-    │   │   │   └── Contents.json
-    │   │   ├── AppIcon.appiconset
-    │   │   │   ├── 1024.png
-    │   │   │   ├── 128.png
-    │   │   │   ├── 16.png
-    │   │   │   ├── 256 1.png
-    │   │   │   ├── 256.png
-    │   │   │   ├── 32 1.png
-    │   │   │   ├── 32.png
-    │   │   │   ├── 512 1.png
-    │   │   │   ├── 512.png
-    │   │   │   ├── 64.png
-    │   │   │   └── Contents.json
-    │   │   └── Contents.json
-    │   ├── Core
-    │   │   ├── App
-    │   │   │   ├── AppDelegate.swift
-    │   │   │   └── SnapClipApp.swift
-    │   │   ├── ClipboardManager.swift
-    │   │   └── Models
-    │   │       └── ClipboardItem.swift
-    │   ├── Preview Content
-    │   │   └── Preview Assets.xcassets
-    │   │       └── Contents.json
-    │   ├── SnapClip.entitlements
-    │   └── UI
-    │       ├── ClipboardViewController.swift
-    │       └── UIComponents.swift
-    ├── SnapClip.xcodeproj
-    │   ├── project.pbxproj
-    │   ├── project.xcworkspace
-    │   │   ├── contents.xcworkspacedata
-    │   │   ├── xcshareddata
-    │   │   │   ├── IDEWorkspaceChecks.plist
-    │   │   │   └── swiftpm
-    │   │   │       └── configuration
-    │   │   └── xcuserdata
-    │   │       └── janjedrzejak.xcuserdatad
-    │   │           └── UserInterfaceState.xcuserstate
-    │   └── xcuserdata
-    │       └── janjedrzejak.xcuserdatad
-    │           ├── xcdebugger
-    │           │   └── Breakpoints_v2.xcbkptlist
-    │           └── xcschemes
-    │               └── xcschememanagement.plist
-    ├── SnapClipTests
-    │   └── SnapClipTests.swift
-    ├── SnapClipUITests
-    │   ├── SnapClipUITests.swift
-    │   └── SnapClipUITestsLaunchTests.swift
-    └── readme.md
-
-```
-## Storage Location
-~/Library/Application Support/SnapClip/history.json
-## Troubleshooting
-
-**Hotkey not working:**
-System Preferences > Security & Privacy > Accessibility > Add SnapClip
-
-**Icon not visible:**
-- Restart SnapClip
-- Check Dock settings
-
-## Roadmap 🚀
-
-- [ ] Settings panel
-- [ ] Search & filter
-- [ ] iCloud sync
-- [ ] Rich text support
-- [ ] Custom hotkeys
-
-## License
-
-MIT License
-
-## Author
-
-[Jan Jędrzejak](https://github.com/janjedrzejak)
+https://github.com/janjedrzejak/SnapClip/releases/tag/SnapClip-v1.0.0-Production-Ready
 
 ---
 
-⭐ Star if useful!
+SnapClip v1.0.0 is production ready!
+
