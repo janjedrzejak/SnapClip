@@ -222,18 +222,55 @@ final class ClipboardManager: NSObject {
     /// Dodaj tekst do historii
     func addToHistory(_ text: String) {
         if history.first?.text == text { return }
-
         let item = ClipboardItem(text: text, timestamp: Date(), id: UUID())
-        history.insert(item, at: 0)
-
+        
+        // Policz pinnowane itemy na szczycie
+        let pinnedCount = history.prefix(while: { $0.isPinned }).count
+        
+        // Wstaw za pinnowanymi
+        history.insert(item, at: pinnedCount)
+        
         // Limit do maxHistorySize
         if history.count > maxHistorySize {
             history.removeLast()
         }
-
+        
         saveHistory()
         refreshUI()
     }
+
+    
+    /// Zapin/rozpięcie itemu
+    func togglePin(_ id: UUID) {
+        if let index = history.firstIndex(where: { $0.id == id }) {
+            history[index].isPinned.toggle()
+            
+            if history[index].isPinned {
+                // Pinowanie - przenieś na górę
+                let pinnedItem = history.remove(at: index)
+                history.insert(pinnedItem, at: 0)
+            } else {
+                // Rozpinowanie - posortuj listę chronologicznie
+                let pinnedItems = history.filter { $0.isPinned }
+                let unpinnedItems = history.filter { !$0.isPinned }
+                    .sorted { $0.timestamp > $1.timestamp }  // Malejąco - najnowsze na szczycie
+                
+                history = pinnedItems + unpinnedItems
+            }
+            
+            saveHistory()
+            refreshUI()
+        }
+    }
+
+
+
+    /// Pokaż notyfikację "pinned"
+    private func showPinNotification(isPinned: Bool) {
+        let message = isPinned ? "Pinned" : "Unpinned"
+        print(message)
+    }
+
 
     /// Skopiuj tekst do schowka
     func copyToClipboard(_ text: String) {

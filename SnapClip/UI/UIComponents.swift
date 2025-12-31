@@ -95,7 +95,7 @@ final class EmptyStateView: NSView {
         let titleString = NSAttributedString(string: "Clipboard History Empty", attributes: titleAttr)
         let subtitleString = NSAttributedString(string: "Copy something to get started", attributes: subtitleAttr)
         
-        titleString.draw(at: NSPoint(x: 185, y: 50))
+        titleString.draw(at: NSPoint(x: 208, y: 50))
         subtitleString.draw(at: NSPoint(x: 210, y: 20))
     }
 }

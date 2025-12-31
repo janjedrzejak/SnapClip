@@ -101,25 +101,59 @@ final class ClipboardViewController: NSViewController {
     private func createHistoryItemView(_ item: ClipboardItem) -> NSView {
         let container = NSView()
         container.wantsLayer = true
-
-        // Text container (clickable)
-        let textContainer = ClickableView(frame: NSRect(x: 12, y: 8, width: 480, height: 64))
+        
+        // Text container (clickable) - różne kolory dla pinnowanych
+        let textContainer = ClickableView(frame: NSRect(x: 12, y: 8, width: 420, height: 64))
         textContainer.wantsLayer = true
-        textContainer.layer?.backgroundColor = NSColor(calibratedWhite: 0.12, alpha: 0.75).cgColor
-        textContainer.layer?.borderColor = NSColor(calibratedWhite: 1.0, alpha: 0.12).cgColor
+        
+        // Kolor ramki w zależności od pinowania
+        if item.isPinned {
+            // Teal/cyan dla pinnowanych
+            textContainer.layer?.backgroundColor = NSColor(red: 0.125, green: 0.702, blue: 0.624, alpha: 0.25).cgColor
+            textContainer.layer?.borderColor = NSColor(red: 0.125, green: 0.702, blue: 0.624, alpha: 0.6).cgColor
+        } else {
+            // Normalny kolor
+            textContainer.layer?.backgroundColor = NSColor(calibratedWhite: 0.12, alpha: 0.75).cgColor
+            textContainer.layer?.borderColor = NSColor(calibratedWhite: 1.0, alpha: 0.12).cgColor
+        }
+        
         textContainer.layer?.borderWidth = 1
         textContainer.layer?.cornerRadius = 10
         textContainer.target = self
         textContainer.itemId = item.id
-
+        
         let textDrawView = TextDrawingView(text: item.text, timestamp: formatTime(item.timestamp))
         textDrawView.frame = textContainer.bounds
         textDrawView.wantsLayer = true
         textDrawView.layer?.backgroundColor = NSColor.clear.cgColor
         textContainer.addSubview(textDrawView)
-
         container.addSubview(textContainer)
-
+        
+        // Pin button - również zabarwiony gdy pinnowany
+        let pinButton = NSButton(frame: NSRect(x: 444, y: 8, width: 52, height: 64))
+        pinButton.title = "📍"
+        pinButton.font = NSFont.systemFont(ofSize: 24)
+        pinButton.bezelStyle = .rounded
+        pinButton.isBordered = false
+        pinButton.wantsLayer = true
+        
+        // Kolor pin button'a w zależności od pinowania
+        if item.isPinned {
+            pinButton.layer?.backgroundColor = NSColor(red: 0.125, green: 0.702, blue: 0.624, alpha: 0.3).cgColor
+            pinButton.layer?.borderColor = NSColor(red: 0.125, green: 0.702, blue: 0.624, alpha: 0.6).cgColor
+        } else {
+            pinButton.layer?.backgroundColor = NSColor(calibratedWhite: 0.2, alpha: 0.8).cgColor
+            pinButton.layer?.borderColor = NSColor(calibratedWhite: 1.0, alpha: 0.15).cgColor
+        }
+        
+        pinButton.layer?.borderWidth = 1
+        pinButton.layer?.cornerRadius = 10
+        pinButton.target = self
+        pinButton.action = #selector(togglePin(_:))
+        let pinButtonTag = item.id.uuidString.hashValue
+        pinButton.tag = pinButtonTag
+        container.addSubview(pinButton)
+        
         // Delete button
         let deleteButton = DeleteButton(frame: NSRect(x: 504, y: 8, width: 52, height: 64))
         deleteButton.title = "🗑"
@@ -134,12 +168,13 @@ final class ClipboardViewController: NSViewController {
         deleteButton.target = self
         deleteButton.action = #selector(deleteItem(_:))
         deleteButton.itemId = item.id
-        
         container.addSubview(deleteButton)
+        
         container.layer?.backgroundColor = NSColor.clear.cgColor
-
         return container
     }
+
+
 
     // MARK: - Actions
     /// Paste item to last application
@@ -149,6 +184,18 @@ final class ClipboardViewController: NSViewController {
             manager.pasteToLastUserApp(item.text)
         }
     }
+    
+    @objc private func togglePin(_ sender: NSButton) {
+        // Znajdź UUID z tag'a (simplified approach)
+        let history = manager.getHistory()
+        for item in history {
+            if item.id.uuidString.hashValue == sender.tag {
+                manager.togglePin(item.id)
+                break
+            }
+        }
+    }
+
 
     /// Reset previous highlight
     func resetPreviousHighlight() {
