@@ -13,6 +13,7 @@
 		5364DB162F01CB51006DB07D /* SnapClipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB152F01CB51006DB07D /* SnapClipTests.swift */; };
 		5364DB202F01CB51006DB07D /* SnapClipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB1F2F01CB51006DB07D /* SnapClipUITests.swift */; };
 		5364DB222F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5364DB212F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift */; };
+		538D26772F0554A800F7880B /* GlobalHotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D26762F0554A800F7880B /* GlobalHotkeyManager.swift */; };
 		53D86B642F047D1C0048E9FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D86B632F047D1C0048E9FD /* AppDelegate.swift */; };
 		53D86B662F047D3D0048E9FD /* ClipboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D86B652F047D3D0048E9FD /* ClipboardItem.swift */; };
 		53D86B682F047D5C0048E9FD /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D86B672F047D5C0048E9FD /* ClipboardManager.swift */; };
@@ -49,6 +50,7 @@
 		5364DB1B2F01CB51006DB07D /* SnapClipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapClipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5364DB1F2F01CB51006DB07D /* SnapClipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapClipUITests.swift; sourceTree = "<group>"; };
 		5364DB212F01CB51006DB07D /* SnapClipUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapClipUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		538D26762F0554A800F7880B /* GlobalHotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHotkeyManager.swift; sourceTree = "<group>"; };
 		53D86B632F047D1C0048E9FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53D86B652F047D3D0048E9FD /* ClipboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardItem.swift; sourceTree = "<group>"; };
 		53D86B672F047D5C0048E9FD /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				5364DB032F01CB4E006DB07D /* SnapClipApp.swift */,
 				53D86B632F047D1C0048E9FD /* AppDelegate.swift */,
+				538D26762F0554A800F7880B /* GlobalHotkeyManager.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				53D86B642F047D1C0048E9FD /* AppDelegate.swift in Sources */,
 				5364DB042F01CB4E006DB07D /* SnapClipApp.swift in Sources */,
 				53D86B6C2F047D970048E9FD /* ClipboardViewController.swift in Sources */,
+				538D26772F0554A800F7880B /* GlobalHotkeyManager.swift in Sources */,
 				53D86B6A2F047D7B0048E9FD /* UIComponents.swift in Sources */,
 				53D86B662F047D3D0048E9FD /* ClipboardItem.swift in Sources */,
 			);

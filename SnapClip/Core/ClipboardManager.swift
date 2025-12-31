@@ -25,8 +25,9 @@ final class ClipboardManager: NSObject {
         createMenuBar()
         startMonitoring()
         startTrackingFrontmostApp()
-        registerHotkey()
+        GlobalHotkeyManager.shared.setup(with: self)
     }
+
 
     // MARK: - File Management
     /// Zwraca ścieżkę do pliku z historią
@@ -406,6 +407,6 @@ final class ClipboardManager: NSObject {
             return event
         }
         
-        print("✅ Hotkey registered: CMD+SHIFT+V (local monitor)")
+        print("Hotkey registered: CMD+SHIFT+V (local monitor)")
     }
 }
