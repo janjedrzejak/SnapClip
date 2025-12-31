@@ -77,7 +77,7 @@ final class ClipboardManager: NSObject {
         guard let button = statusItem?.button else { return }
         
         // Ustaw ikonę schowka
-        if let image = NSImage(systemSymbolName: "clipboard", accessibilityDescription: "SnapClip") {
+        if let image = NSImage(systemSymbolName: "square.stack.fill", accessibilityDescription: "SnapClip") {
             image.isTemplate = true
             button.image = image
         } else {

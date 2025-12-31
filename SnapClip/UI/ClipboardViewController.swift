@@ -129,13 +129,19 @@ final class ClipboardViewController: NSViewController {
         textContainer.addSubview(textDrawView)
         container.addSubview(textContainer)
         
-        // Pin button - również zabarwiony gdy pinnowany
+        // Pin button - SF Symbol
         let pinButton = NSButton(frame: NSRect(x: 444, y: 8, width: 52, height: 64))
-        pinButton.title = "📍"
-        pinButton.font = NSFont.systemFont(ofSize: 24)
         pinButton.bezelStyle = .rounded
         pinButton.isBordered = false
         pinButton.wantsLayer = true
+        
+        // SF Symbol - pin.fill
+        if let pinImage = NSImage(systemSymbolName: "pin.fill", accessibilityDescription: "Pin") {
+            pinImage.isTemplate = true
+            pinButton.image = pinImage
+        } else {
+            pinButton.title = "📍"
+        }
         
         // Kolor pin button'a w zależności od pinowania
         if item.isPinned {
@@ -154,13 +160,20 @@ final class ClipboardViewController: NSViewController {
         pinButton.tag = pinButtonTag
         container.addSubview(pinButton)
         
-        // Delete button
+        // Delete button - SF Symbol
         let deleteButton = DeleteButton(frame: NSRect(x: 504, y: 8, width: 52, height: 64))
-        deleteButton.title = "🗑"
-        deleteButton.font = NSFont.systemFont(ofSize: 28)
         deleteButton.bezelStyle = .rounded
         deleteButton.isBordered = false
         deleteButton.wantsLayer = true
+        
+        // SF Symbol - trash.fill
+        if let trashImage = NSImage(systemSymbolName: "trash.fill", accessibilityDescription: "Delete") {
+            trashImage.isTemplate = true
+            deleteButton.image = trashImage
+        } else {
+            deleteButton.title = "🗑"
+        }
+        
         deleteButton.layer?.backgroundColor = NSColor(calibratedWhite: 0.2, alpha: 0.8).cgColor
         deleteButton.layer?.borderColor = NSColor(calibratedWhite: 1.0, alpha: 0.15).cgColor
         deleteButton.layer?.borderWidth = 1
@@ -173,6 +186,7 @@ final class ClipboardViewController: NSViewController {
         container.layer?.backgroundColor = NSColor.clear.cgColor
         return container
     }
+
 
 
 
